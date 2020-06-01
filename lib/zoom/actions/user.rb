@@ -135,7 +135,6 @@ module Zoom
         # Attempt to implement check email feature
         params = Zoom::Params.new(Utils.extract_options!(args))
         params.permit(%i[email])
-        puts "Params are #{params}"
         response = self.class.get('/users/email', query: params, headers: request_headers)
         Utils.parse_response(response)        
       end
