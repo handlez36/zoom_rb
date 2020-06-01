@@ -12,7 +12,8 @@ module Zoom
       end
 
       def raise_if_error!(response)
-        return response unless response&.key?('code')
+        # return response unless response&.key?('code')
+        return response unless response.try(:key?, 'code')
 
         code = response['code']
 
